@@ -37,4 +37,10 @@
         this.href = 'http://anidb.net/perl-bin/animedb.pl?show=animelist&noalias=1&do.update=update&adb.search=' +
             encodeURIComponent($(this).parent().text().replace(/( S[0-9]+)?$/, ""));
     });
+
+    $(".series-info").closest("article").find("header").addClass("res-link").addClass("schedule-show").find("h1").after('<a href="#" target="_blank" class="linkful"><img src="http://anidb.net/favicon.ico"> AniDB</a>').find("a").click(function () {
+        this.href = 'http://anidb.net/perl-bin/animedb.pl?show=animelist&noalias=1&do.update=update&adb.search=' +
+            encodeURIComponent($(this).parent().text().trim().replace(/( Season [A-Za-z]+)?$/, ""));
+        console.log($(this).parent().text());
+    });
 })();
