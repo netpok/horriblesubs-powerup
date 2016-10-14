@@ -26,8 +26,8 @@
     var add_ep_click_event_ = add_ep_click_event;
     add_ep_click_event = function () {
         add_ep_click_event_();
-        $(".release-info tr>td.link-1080p:nth-last-child(1)").parent().prepend('<td class="res-label res-label-4"><span class="res-link">' +
-            '<a href="#" class="tr_needlistener" target="_blank"><img src="http://anidb.net/favicon.ico"></a></span></td>').find("a:first").click(function () {
+        $("td.rls-label:nth-child(1):not(.rls-label-4)").parent().prepend('<td class="res-label res-label-4"><span class="res-link">' +
+            '<a href="#" target="_blank"><img src="http://anidb.net/favicon.ico"></a></span></td>').find("a:first").click(function () {
             this.href = 'http://anidb.net/perl-bin/animedb.pl?show=animelist&noalias=1&do.update=update&adb.search=' +
                 encodeURIComponent($(this).closest("tr").find("td:nth-child(2)").text().replace(/^\([0-9]{2}\/[0-9]{2}(\/[0-9]{2})?\) /, "").replace(/( S[0-9]+)? - [0-9]+(-[0-9]+)?$/, ""));
         });
