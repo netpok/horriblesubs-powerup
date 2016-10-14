@@ -20,4 +20,14 @@
     });
 
     $("#mban").parent().remove();
+
+    var add_ep_click_event_ = add_ep_click_event;
+    add_ep_click_event = function () {
+        add_ep_click_event_();
+        $(".release-info tr>td.link-1080p:nth-last-child(1)").after('<td class="linkful res-label"><span class="res-link">' +
+            '<a href="#" class="tr_needlistener" target="_blank"><img src="http://anidb.net/favicon.ico"></a></span></td>').next().find("a").click(function () {
+            this.href = 'http://anidb.net/perl-bin/animedb.pl?show=animelist&noalias=1&do.update=update&adb.search=' +
+                encodeURIComponent($(this).closest("tr").find("td:first").text().replace(/\([0-9]{2}\/[0-9]{2}(\/[0-9]{2})?\) /, "").replace(/( S[0-9]+)? - [0-9]+(-[0-9]+)?/, ""));
+        });
+    };
 })();
