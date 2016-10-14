@@ -18,4 +18,6 @@
     $(".schedule-time").each(function () {
         $(this).text(moment.tz($(this).text(), "HH:mm", 'America/Los_Angeles').local().format("HH:mm"));
     });
+
+    $("#mban").parent().remove();
 })();
