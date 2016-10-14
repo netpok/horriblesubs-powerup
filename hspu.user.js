@@ -7,6 +7,7 @@
 // @match        http://horriblesubs.info/*
 // @require      https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.6/moment-timezone-with-data.min.js
+// @grant        GM_addStyle
 // ==/UserScript==
 /* jshint -W097 */
 'use strict';
@@ -29,4 +30,10 @@
                 encodeURIComponent($(this).closest("tr").find("td:first").text().replace(/\([0-9]{2}\/[0-9]{2}(\/[0-9]{2})?\) /, "").replace(/( S[0-9]+)? - [0-9]+(-[0-9]+)?/, ""));
         });
     };
+
+    GM_addStyle(".ind-show a{display: initial!important} .ind-show img,.schedule-page-show img, .schedule-show img{vertical-align: -2px;padding-right: 7px;}");
+    $(".ind-show,.schedule-page-show,.schedule-show").prepend('<a href="#" target="_blank"><img src="http://anidb.net/favicon.ico"></a>').find("a:first").click(function () {
+        this.href = 'http://anidb.net/perl-bin/animedb.pl?show=animelist&noalias=1&do.update=update&adb.search=' +
+            encodeURIComponent($(this).parent().text().replace(/( S[0-9]+)?$/, ""));
+    });
 })();
