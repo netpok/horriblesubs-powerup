@@ -12,8 +12,7 @@
 'use strict';
 
 (function () {
-
-    var $ = $j;
+    var $ = jQuery;
 
     $(".schedule-time").each(function () {
         $(this).text(moment.tz($(this).text(), "HH:mm", 'America/Los_Angeles').local().format("HH:mm"));
